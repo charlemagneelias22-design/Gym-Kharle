@@ -1,114 +1,159 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GYM | KHARLE</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GYM & DASHBOARD | KHARLE</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-
-<script src="script.js"></script>
-
 <body>
 
-<section class="hero">
-    <img src="25a0dcfa-7fa2-4930-8e1f-663143b70354.jfif" alt="Profile">
-    <h1>KHARLE</h1>
-    <p><b>Web Developer | Designer | ENGR</bold></p>
-    <p>Gym at URBNJUNGLEFITNESS</p>
-    <p>
-        <a
-        href="https://www.instagram.com/kharleee_?igsh=cGFubTBtTNmFiNGo3&utm_source=qr" target="_blank">
-        <ul>
-            <li>
-            Instagram: @Kharleee_
-            </li>
-        </ul>
-        </a>
-    </p>
-</section>
+    <div class="layout-container">
 
-
-<section class="cards-section">
-    <h2>GYM</h2>
-
-    <div class="card-container">
-
-        <div class="flip-card" onclick="flipCard(this)">
-            <div class="flip-card-inner">
-
-                <div class="flip-card-front card1">
-                    PUSH DAY
-                </div>
-                <div class="flip-card-back">
-                    <ul>
-                    Incline Dumbbell Chest Press
-                    Bench Seated Press
-                    Pec Deck Machine
-                    Shoulder Press
-                    Lateral Raise
-                    Wide Grip Tricep Pushdown
-                    </ul>
-                </div>
-
-            </div>
+        <div class="background-decor">
+            <div class="circle circle-1"></div>
+            <div class="circle circle-2"></div>
         </div>
 
-
-         <div class="flip-card" onclick="flipCard(this)">
-            <div class="flip-card-inner">
-
-                <div class="flip-card-front card2">
-                    PULL DAY
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>KHARLE</span>
                 </div>
-                <div class="flip-card-back">
-                    <ul>
-                    Lat Pull Down  
-                    Seated Close Grip Row
-                    T-Bar Chest Supported Row
-                    Lat Pullover
-                    Incline Dummbell Curl
-                    Cross Body Hammer Curl
-                    </ul>
-                </div>
-
             </div>
-        </div>
 
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="#">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-dumbbell"></i>
+                        <span>Workouts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Messages</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
 
-        <div class="flip-card" onclick="flipCard(this)">
-            <div class="flip-card-inner">
-
-                <div class="flip-card-front card3">
-                    LEG DAY
-                </div>
-                <div class="flip-card-back">
-                    <ul>
-                    Hip Thrust
-                    Bulgarian Split Squat
-                    Leg Extension
-                    Hip Abduction
-                    Decline Sit Ups
-                    Leg Raises
-                    </ul>
-                </div>
-
-
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
             </div>
-        </div>
+        </nav>
 
+        <main class="main-content">
+            
+            <section class="hero">
+                <img src="25a0dcfa-7fa2-4930-8e1f-663143b70354.jfif" alt="Profile picture of Kharle">
+                <h1>KHARLE</h1>
+                <p><strong>Web Developer | Designer | Game Dev | ENGR</strong></p>
+                <p>Knowledgeable in HTML, CSS, GODOT, C Programming, Prototyping</p>
+                <p>Gym at URBNJUNGLEFITNESS</p>
+                
+                <div class="social-links">
+                    <a href="https://www.instagram.com/kharleee_?igsh=cGFubTBtTNmFiNGo3&utm_source=qr" target="_blank" rel="noopener">
+                        Instagram: @Kharleee_
+                    </a>
+                </div>
+            </section>
+
+            <section class="cards-section">
+                <h2>GYM</h2>
+
+                <div class="card-container">
+
+                    <div class="flip-card" onclick="flipCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card1">
+                                <h3>PUSH DAY</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <ul>
+                                    <li>Incline Dumbbell Chest Press</li>
+                                    <li>Bench Seated Press</li>
+                                    <li>Pec Deck Fly Machine</li>
+                                    <li>Shoulder Press</li>
+                                    <li>Lateral Raise</li>
+                                    <li>Wide Grip Tricep Pushdown</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card" onclick="flipCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card2">
+                                <h3>PULL DAY</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <ul>
+                                    <li>Lat Pull Down</li>
+                                    <li>Seated Close Grip Row</li>
+                                    <li>T-Bar Chest Supported Row</li>
+                                    <li>Lat Pullover</li>
+                                    <li>Incline Dumbbell Curl</li>
+                                    <li>Cross Body Hammer Curl</li>
+                                    <li>Bent Over Lateral Raise</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flip-card" onclick="flipCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front card3">
+                                <h3>LEG DAY</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <ul>
+                                    <li>Hip Thrust</li>
+                                    <li>Bulgarian Split Squat</li>
+                                    <li>Leg Extension</li>
+                                    <li>Hip Abduction</li>
+                                    <li>Decline Sit Ups</li>
+                                    <li>Leg Raises</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
     </div>
-</section>
 
-<script>
-function flipCard(card){
-    card.querySelector('.flip-card-inner').classList.toggle('flipped');
-}
-function flipCard(card){
-    card.querySelector('.flip-card-inner').classList.toggle('flipped');
-}
-function flipCard(card){
-    card.querySelector('.flip-card-inner').classList.toggle('flipped');
-}
-</script>
+    <script>
+    function flipCard(card) {
+        card.querySelector('.flip-card-inner').classList.toggle('flipped');
+    }
+    </script>
 
 </body>
 </html>

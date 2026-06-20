@@ -1,19 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* ==========================================
+   GLOBAL STYLES & RESET 
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: #030714;
+    background: #090d1a;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+    position: relative;
 }
 
+/* Base App Layout Wrapper to align sidebar and content side-by-side */
+.layout-container {
+    display: flex;
+    width: 100%;
+}
 
-                        /*  HERO SECTION    */
+/* Background Glowing Orbs for the Glassmorphism to Blur Over */
+.background-decor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
 
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(225, 48, 108, 0.4);
+    top: -50px;
+    left: -50px;
+}
+
+.circle-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 80, 255, 0.3);
+    bottom: -100px;
+    left: 100px;
+}
+
+             /* ==========================================
+             MODERN GLASS SIDEBAR 
+            ========================================== */
+.sidebar {
+    width: 260px;
+    height: 95vh;
+    margin: 2.5vh 0 2.5vh 20px; /* Floating panel design */
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 24px;
+    position: sticky;
+    top: 2.5vh;
+
+    /* The Glass Recipe */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.sidebar-header {
+    margin-bottom: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.logo i {
+    color: #e1306c;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-links li a, .logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 16px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 400;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a i, .logout-btn i {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.nav-links li a:hover, .logout-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(4px);
+}
+
+.nav-links li.active a {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-weight: 500;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+}
+
+.logout-btn:hover {
+    color: #ff4a4a;
+    background: rgba(255, 74, 74, 0.1);
+}
+
+                            /* ==========================================
+                            MAIN CONTENT AREA (Hero + Cards)
+                            ========================================== */
+.main-content {
+    flex: 1;
+    padding: 40px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* HERO SECTION */
 .hero {
-    height: 100vh;
+    min-height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,13 +169,18 @@ body {
     color: white;
     position: relative;
     overflow: hidden;
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 20px;
 }
 
 .hero a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
+
 .hero a:hover {
     color: #E1306C;
 }
@@ -40,7 +192,7 @@ body {
     background-image: url("25a0dcfa-7fa2-4930-8e1f-663143b70354.jfif"); 
     background-size: cover;
     background-position: center;
-    filter: blur(10px);
+    filter: blur(15px);
     transform: scale(1.1);
     z-index: -2;
 }
@@ -49,37 +201,37 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(9, 13, 26, 0.6);
     z-index: -1;
 }
 
 .hero img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     border: 4px solid rgb(255, 255, 255);
     object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
 }
 
 .hero h1 {
     font-size: 3rem;
+    letter-spacing: 2px;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    max-width: 600px;
+    line-height: 1.5;
 }
 
-
-
-                        /*  CARDS SECTION   */
-
-.card {
-    background-size: cover;
-    background-position: center;
+.social-links {
+    margin-top: 10px;
 }
 
+                                    /* CARDS SECTION */
 .cards-section {
-    padding: 80px 20px;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -87,23 +239,20 @@ body {
     margin-bottom: 40px;
     color: #b0caf7;
     font-size: 2.5rem;
-    font-family: 'Courier New, Courier, monospace';
+    letter-spacing: 3px;
 }
 
 .card-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
 }
 
-
-
-                        /*   VERTICAL RECTANGLE     */
-
+/* VERTICAL FLIP CARDS */
 .flip-card {
-    width: 220px;
-    height: 350px;
+    width: 240px;
+    height: 380px;
     perspective: 1000px;
     cursor: pointer;
 }
@@ -112,7 +261,7 @@ body {
     width: 100%;
     height: 100%;
     position: relative;
-    transition: transform 0.7s;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     transform-style: preserve-3d;
 }
 
@@ -127,32 +276,58 @@ body {
     height: 100%;
     border-radius: 15px;
     backface-visibility: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
 .flip-card-front {
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: bold;
-    font-family: 'Courier New, Courier, monospace';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 .flip-card-back {
-    background: rgb(0, 20, 77);
-    color: white;
+    background: rgba(0, 20, 77, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
     transform: rotateY(180deg);
-    font-family: 'Courier New, Courier, monospace';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
 }
 
+.flip-card-back ul {
+    list-style-type: none;
+    text-align: left;
+    width: 100%;
+}
 
+.flip-card-back li {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 15px;
+}
 
-                        /*  CARDS   */
+.flip-card-back li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: #b0caf7;
+}
 
+.flip-card-back li:last-child {
+    margin-bottom: 0;
+}
+
+                        /* CARD IMAGES BACKGROUNDS */
 .card1 {
     background-image: url("4491bfba-c709-480c-8ef5-ba3699087d4f.jpg");
     background-size: cover;
@@ -162,7 +337,7 @@ body {
 .card2 {
     background-image: url("78a01c2d-9f5a-42ab-b9fe-52a3ff48e427.jpg");
     background-size: cover;
-    background-position: center
+    background-position: center;
 }
 
 .card3 {
