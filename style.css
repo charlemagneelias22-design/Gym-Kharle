@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
-/* ==========================================
-   GLOBAL STYLES & RESET 
-   ========================================== */
+                            /* GLOBAL STYLES & RESET */
 * {
     margin: 0;
     padding: 0;
@@ -10,12 +8,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+    height: 100vh;
+    overflow: hidden; /* Lock the outer window from scrolling awkwardly */
+}
+
 body {
     background: #090d1a;
     color: #ffffff;
-    min-height: 100vh;
     display: flex;
-    overflow-x: hidden;
     position: relative;
 }
 
@@ -23,7 +24,9 @@ body {
 .layout-container {
     display: flex;
     width: 100%;
+    height: 100vh;
 }
+
 
 /* Background Glowing Orbs for the Glassmorphism to Blur Over */
 .background-decor {
@@ -43,7 +46,7 @@ body {
 .circle-1 {
     width: 300px;
     height: 300px;
-    background: rgba(225, 48, 108, 0.4);
+    background: rgba(48, 51, 225, 0.4);
     top: -50px;
     left: -50px;
 }
@@ -56,9 +59,11 @@ body {
     left: 100px;
 }
 
-             /* ==========================================
-             MODERN GLASS SIDEBAR 
-            ========================================== */
+
+
+
+
+                        /* MODERN GLASS SIDEBAR */
 .sidebar {
     width: 260px;
     height: 95vh;
@@ -67,10 +72,10 @@ body {
     flex-direction: column;
     border-radius: 20px;
     padding: 24px;
-    position: sticky;
-    top: 2.5vh;
+    position: shrink; /* Kept clean alongside scrolling main frame */
+    z-index: 10;
 
-    /* The Glass Recipe */
+    /* The Glass */
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -97,6 +102,12 @@ body {
     font-size: 1.5rem;
 }
 
+
+
+
+
+                        /* NAVIGATION */
+                        /* MODERN GLASS SIDEBAR */
 .nav-links {
     list-style: none;
     display: flex;
@@ -104,7 +115,8 @@ body {
     gap: 8px;
 }
 
-.nav-links li a, .logout-btn {
+                        /* Base styles for all navigation links */
+.nav-links li a {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -112,43 +124,83 @@ body {
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     border-radius: 12px;
-    font-weight: 400;
+    font-weight: 400; 
     font-size: 0.95rem;
     transition: all 0.3s ease;
 }
 
-.nav-links li a i, .logout-btn i {
+                        /* Sidebar icon alignment */
+.nav-links li a i {
     font-size: 1.2rem;
     width: 24px;
     text-align: center;
 }
 
-.nav-links li a:hover, .logout-btn:hover {
+                        /* Hover Animation Effect */
+.nav-links li a:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.08);
     transform: translateX(4px);
 }
 
+                        /* ACTIVE PAGE STATE - Uniform look, transparent background when resting */
 .nav-links li.active a {
     color: #ffffff;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-weight: 500;
+    background: transparent !important;   
+    box-shadow: none !important;          
+    border: 1px solid transparent;        
+    font-weight: 400; 
 }
 
-.sidebar-footer {
-    margin-top: auto;
+
+
+
+
+                        /* DASHBOARD AREA */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-.logout-btn:hover {
-    color: #ff4a4a;
-    background: rgba(255, 74, 74, 0.1);
+.dash-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-                            /* ==========================================
-                            MAIN CONTENT AREA (Hero + Cards)
-                            ========================================== */
+.dash-card i {
+    font-size: 1.8rem;
+    color: #e1306c;
+}
+
+.dash-info h4 {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dash-info p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 2px;
+}
+
+
+
+
+
+                        /* MAIN CONTENT AREA */
 .main-content {
     flex: 1;
     padding: 40px;
@@ -156,11 +208,25 @@ body {
     display: flex;
     flex-direction: column;
     gap: 60px;
+    
+    /* Dedicated Viewport Scroll Target Setup */
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth !important;
 }
 
-/* HERO SECTION */
+
+
+                        /* PROFILE SECTION */
+                        /* HERO SECTION - FIXED COMPRESSION */
+#profile-section{
+    padding: 40px 0;
+    text-align: center;
+    scroll-margin-top: 20px; /* Buffer room when smooth scrolling lands */
+}
 .hero {
     min-height: 70vh;
+    flex-shrink: 0; /* Prevents flexbox from flattening/compressing your hero profile block */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -192,8 +258,9 @@ body {
     background-image: url("25a0dcfa-7fa2-4930-8e1f-663143b70354.jfif"); 
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat; /* Prevents background image tiling artifact bugs */
     filter: blur(15px);
-    transform: scale(1.1);
+    transform: scale(1.1); /* Keeps blurred frame boundaries out of view bounds */
     z-index: -2;
 }
 
@@ -208,6 +275,7 @@ body {
 .hero img {
     width: 180px;
     height: 180px;
+    flex-shrink: 0; /* Keeps your profile avatar perfectly circular and prevents flattening */
     border-radius: 50%;
     border: 4px solid rgb(255, 255, 255);
     object-fit: cover;
@@ -216,23 +284,31 @@ body {
 
 .hero h1 {
     font-size: 3rem;
-    letter-spacing: 2px;
+    letter-spacing: 2px; 
+    font-family:'Times New Roman', Times, serif;
 }
 
 .hero p {
     font-size: 1.1rem;
     max-width: 600px;
     line-height: 1.5;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .social-links {
     margin-top: 10px;
 }
 
-                                    /* CARDS SECTION */
-.cards-section {
+
+
+
+
+                        /* WORKOUT SECTION */
+                        /* CARDS SECTION */
+#workouts-section {
     padding: 40px 0;
     text-align: center;
+    scroll-margin-top: 20px; 
 }
 
 .cards-section h2 {
@@ -240,13 +316,25 @@ body {
     color: #b0caf7;
     font-size: 2.5rem;
     letter-spacing: 3px;
+    font-family:'Times New Roman', Times, serif;
 }
+
 
 .card-container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap;        
+    justify-content: center; /* center 2 cards below */
     gap: 15px;
+    max-width: 960px;        /* total width layout */
+    margin: 0 auto;
+}
+
+/* 3 per row */
+.card-container > div, 
+.card-container .card {
+    /* 3 top card*/
+    flex: 0 1 calc(33.333% - 10px); 
+    min-width: 250px;        /* Keeps them from shrinking too small */
 }
 
 /* VERTICAL FLIP CARDS */
@@ -327,21 +415,251 @@ body {
     margin-bottom: 0;
 }
 
-                        /* CARD IMAGES BACKGROUNDS */
+/* CARD IMAGES BACKGROUNDS */
 .card1 {
-    background-image: url("4491bfba-c709-480c-8ef5-ba3699087d4f.jpg");
+    background-image: url("Pictures/4491bfba-c709-480c-8ef5-ba3699087d4f.jpg");
     background-size: cover;
     background-position: 100% 0%;
 }
 
 .card2 {
-    background-image: url("78a01c2d-9f5a-42ab-b9fe-52a3ff48e427.jpg");
+    background-image: url("Pictures/78a01c2d-9f5a-42ab-b9fe-52a3ff48e427.jpg");
     background-size: cover;
     background-position: center;
 }
 
 .card3 {
-    background-image: url("0f500a01-feec-41b2-a3eb-8852206688c9.jpg");
+    background-image: url("Pictures/0f500a01-feec-41b2-a3eb-8852206688c9.jpg");
     background-size: cover;
     background-position: 0% 100%;
+}
+
+.card4 {
+    background-image: url("your-upper-day-image.jpg"); 
+    background-size: cover;
+    background-position: center;
+}
+
+.card5 {
+    background-image: url("your-lower-day-image.jpg"); 
+    background-size: cover;
+    background-position: center;
+}
+
+                        /* PROJECT SECTION */                 
+
+/* ==========================================
+   PROJECTS ACCORDION STYLES
+   ========================================== */
+
+#project-section {
+    text-align: center;
+}
+/* Main Accordion Container */
+.project-accordion-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Base Wrapper for Each Folder Card */
+.accordion-item {
+    background: #08294b;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Clickable Folder Header Tab */
+.accordion-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: rgb(159, 203, 253);
+    user-select: none;
+}
+
+/* Aligns the icon next to the folder heading */
+.header-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-title-wrapper h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+/* Visual Icons Styling */
+.web-icon { font-size: 1.5rem; color: #3498db; }
+.video-icon { font-size: 1.5rem; color: #e74c3c; }
+
+/* The drop arrow */
+.arrow {
+    transition: transform 0.3s ease;
+}
+
+/* Accordion Content Box (The slide-down panel) */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: #34495e;
+    color: #ecf0f1;
+}
+
+/* Controls spacing inside the revealed panel */
+.accordion-inner-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.accordion-inner-body p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Call to Action Buttons styling */
+.project-btn {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: inline-block;
+    transition: background 0.2s, opacity 0.2s;
+}
+
+/* Individual accent button colors */
+.web-btn { background: #3498db; }
+.video-btn { background: #e74c3c; }
+
+.project-btn:hover {
+    opacity: 0.9;
+}
+
+
+                        /* CONTACT SECTION */                 
+#contact-section {
+    padding: 0px;
+}
+/* ==========================================
+   CONTACT SECTION STYLES
+   ========================================== */
+
+.contact-section-wrapper {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-title h3 {
+    font-size: 1.8rem;
+    font-family: 'Times New Roman', Times, serif;
+    color: #b0caf7;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+/* Container for the communication elements */
+.social-links-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Keeps it responsive on smaller screens */
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Individual Interactive Contact Blocks */
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #08294b;
+    padding: 15px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    min-width: 260px;
+    border: 1px solid #000000;
+}
+
+/* Align text elements vertically inside the card */
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #7f8c8d;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.contact-value {
+    font-size: 1rem;
+    color: rgb(159, 203, 253);
+    font-weight: 600;
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    transition: color 0.2s ease;
+}
+
+                            /* --- HOVER --- */
+
+/* Instagram Hover Setup */
+.instagram-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(225, 48, 108, 0.15);
+    background-color: rgb(12, 30, 51); /* Very soft pink highlight */
+}
+.instagram-card .contact-icon {
+    color: #e1306c; /* Instagram Pink */
+}
+
+/* Email Hover Setup */
+.email-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.15);
+    background-color: rgb(12, 30, 51); /* Very soft blue highlight */
+}
+.email-card .contact-icon {
+    color: #3498db; /* Elegant Blue */
+}
+
+/* --- Desktop Layout (Default) --- */
+.container {
+  display: flex;
+  flex-direction: row; /* Elements sit side-by-side */
+}
+
+/* --- Mobile/Tablet Layout --- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Elements stack vertically */
+  }
+  
+  /* Make sure images or cards scale down nicely */
+  .responsive-element {
+    width: 100%;
+    max-width: 100%;
+  }
 }

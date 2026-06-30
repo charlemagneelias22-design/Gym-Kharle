@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
+    <!-- this is for tablet/phone friendly-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GYM & DASHBOARD | KHARLE</title>
     
@@ -9,151 +11,282 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
+        
+        <div class="layout-container">
 
-    <div class="layout-container">
+                                <div class="background-decor">
+                                    <div class="circle circle-1"></div>
+                                    <div class="circle circle-2"></div>
+                                </div>
 
-        <div class="background-decor">
-            <div class="circle circle-1"></div>
-            <div class="circle circle-2"></div>
+                                    <!--NAVBAR-->
+                        <nav class="sidebar">
+                            <div class="sidebar-header">
+                                <div class="logo">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                    <span>KHARLE</span>
+                                </div>
+                            </div>
+
+                            <ul class="nav-links">
+
+                                <li class="active">
+                                    <a href="#profile-section">
+                                        <i class="fa-solid fa-user fa-lg"></i>
+                                        <span>Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#workouts-section">
+                                        <i class="fa-solid fa-dumbbell"></i>
+                                        <span>Workouts</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#project-section">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                        <span>Projects</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#contact-section">
+                                        <i class="fa-solid fa-envelope"></i>
+                                        <span>Contact</span>
+                                    </a>
+                                </li>               
+                            </ul>
+                        </nav>
+                                        <!--    MAIN    -->
+            <main class="main-content">           
+                                        <!--    DASHBOARD SECTION    -->
+                    <div class="dashboard-grid">         
+                        <div class="dash-card">
+                            <i class="fa-solid fa-calendar-day fa-calendar-day"></i>
+                            <div class="dash-info">
+                                <h4>Current Routine</h4>
+                                <p>PPL UL Split</p>
+                            </div>
+                        </div>
+
+                        <div class="dash-card">
+                            <i class="fa-solid fa-location-dot fa-location-dot"></i>
+                            <div class="dash-info">
+                                <h4>Active Gym</h4>
+                                <p>URBNJUNGLEFITNESS</p>
+                            </div>
+                        </div>
+
+                        <div class="dash-card">
+                            <i class="fa-solid fa-fire fa-fire"></i>
+                            <div class="dash-info">
+                                <h4>Streak</h4>
+                                <p>5 Days Active a week</p>
+                            </div>
+                        </div>
+                    </div>
+                                        <!--    PROFILE SECTION    -->
+                            <section id="profile-section" class="hero">
+                                <img src="Pictures/25a0dcfa-7fa2-4930-8e1f-663143b70354.jfif" alt="Profile picture of Kharle">
+                                <h1>KHARLE</h1>
+                                <p><strong>Web Developer | Designer | Game Dev | ENGR</strong></p>
+                                <p>Knowledgeable in HTML, CSS, GODOT, C Programming, Prototyping</p>
+                                <p>Gym at URBNJUNGLEFITNESS</p>                             
+                            </section>
+                                        <!--    WORKOUT SECTION    -->
+                            <section id="workouts-section" class="cards-section">
+                                <h2>GYM</h2>
+
+                                <div class="card-container">
+                                                    <!--    PUSH DAY    -->
+                                        <div class="flip-card" onclick="flipCard(this)">
+                                            <div class="flip-card-inner">
+                                                <div class="flip-card-front card1">
+                                                    <h3>PUSH DAY</h3>
+                                                </div>
+                                                <div class="flip-card-back">
+                                                    <ul>
+                                                        <li>Incline Dumbbell Chest Press</li>
+                                                        <li>Bench Seated Press</li>
+                                                        <li>Pec Deck Fly Machine</li>
+                                                        <li>Shoulder Press</li>
+                                                        <li>Lateral Raise</li>
+                                                        <li>Wide Grip Tricep Pushdown</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                    <!--    PULL DAY    -->
+                                <div class="flip-card" onclick="flipCard(this)">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front card2">
+                                                <h3>PULL DAY</h3>
+                                            </div>
+                                                <div class="flip-card-back">
+                                                    <ul>
+                                                        <li>Lat Pull Down</li>
+                                                        <li>Seated Close Grip Row</li>
+                                                        <li>T-Bar Chest Supported Row</li>
+                                                        <li>Lat Pullover</li>
+                                                        <li>Incline Dumbbell Curl</li>
+                                                        <li>Cross Body Hammer Curl</li>
+                                                        <li>Bent Over Lateral Raise</li>
+                                                    </ul>
+                                                </div>
+                                        </div>
+                                </div>
+                                                    <!--    LEGS/ABS DAY    -->
+                                    <div class="flip-card" onclick="flipCard(this)">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front card3">
+                                                <h3>LEG DAY</h3>
+                                            </div>
+                                                <div class="flip-card-back">
+                                                    <ul>
+                                                        <li>Hip Thrust</li>
+                                                        <li>Bulgarian Split Squat</li>
+                                                        <li>Leg Extension</li>
+                                                        <li>Hip Abduction</li>
+                                                        <li>Decline Sit Ups</li>
+                                                        <li>Leg Raises</li>
+                                                    </ul>
+                                                </div>
+                                        </div>
+                                    </div>
+                                                    <!--    UPPER BODY DAY    -->
+                                    <div class="flip-card" onclick="flipCard(this)">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front card4">
+                                                <h3>UPPER BODY</h3>
+                                            </div>
+                                                <div class="flip-card-back">
+                                                    <ul>
+                                                        <li>Incline Dumbbell Press</li>
+                                                        <li>Peck Deck Fly Machine</li>
+                                                        <li>Pull Ups</li>
+                                                        <li>T-bar Chest Supported Row</li>
+                                                        <li>Lateral Raise</li>
+                                                        <li>Wide Grip Tricep Pushdown</li>
+                                                        <li>Preacher Curl</li>
+                                                    </ul>
+                                                </div>
+                                        </div>
+                                    </div>
+                                                    <!--    LOWER BODY DAY    -->
+                                    <div class="flip-card" onclick="flipCard(this)">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front card5">
+                                                <h3>LOWER BODY</h3>
+                                            </div>
+                                                <div class="flip-card-back">
+                                                    <ul>
+                                                        <li>RDL</li>
+                                                        <li>Pendulum Squat</li>
+                                                        <li>Leg Extension</li>
+                                                        <li>Hamstring Curl</li>
+                                                        <li>Hip Adduction</li>
+                                                        <li>Calves</li>
+                                                    </ul>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                                        <!--    PROJECT SECTION    -->
+                            <section id="project-section" class="cards-section">
+                                <h2>PROJECTS</h2>
+                                
+                                <div class="project-accordion-container">
+                                    
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                                            <div class="header-title-wrapper">
+                                                <i class="fa-solid fa-folder-open web-icon"></i>
+                                                <h3>WEBSITE PROJECTS</h3>
+                                            </div>
+                                            <i class="fa-solid fa-chevron-down arrow"></i>
+                                        </div>
+                                        <div class="accordion-content">
+                                            <div class="accordion-inner-body">
+                                                <p>Explore my live web applications, responsive landing pages, UI designs, and frontend solutions built with modern web technologies.</p>
+                                                <a href="#" target="_blank" rel="noopener" class="project-btn web-btn">View Websites →</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="accordion-item">
+                                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                                            <div class="header-title-wrapper">
+                                                <i class="fa-solid fa-video video-icon"></i>
+                                                <h3>VIDEO EDITS</h3>
+                                            </div>
+                                            <i class="fa-solid fa-chevron-down arrow"></i>
+                                        </div>
+                                        <div class="accordion-content">
+                                            <div class="accordion-inner-body">
+                                                <p>Check out my video edits, motion graphics, transitions, and montages showcasing pacing, creative continuity, and visual storytelling.</p>
+                                                <a href="#" target="_blank" rel="noopener" class="project-btn video-btn">Watch Edits →</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </section>
+                                        <!--    CONTACT SECTION    -->
+                            <section id="contact-section" class="contact-section-wrapper">
+                                <div class="contact-title">
+                                    <h3>CONTACT ME</h3>
+                                </div>
+                                
+                                <div class="social-links-container">
+                                    <a href="https://www.instagram.com/kharleee_?igsh=cGFubTBtTNmFiNGo3&utm_source=qr" target="_blank" rel="noopener" class="contact-card instagram-card">
+                                        <i class="fa-brands fa-instagram contact-icon"></i>
+                                        <div class="contact-text">
+                                            <span class="contact-label">Instagram</span>
+                                            <span class="contact-value">@kharleee_</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="mailto:Charlemagneelias22@gmail.com" class="contact-card email-card">
+                                        <i class="fa-solid fa-envelope contact-icon"></i>
+                                        <div class="contact-text">
+                                            <span class="contact-label">Email</span>
+                                            <span class="contact-value">Charlemagneelias22@gmail.com</span>
+                                        </div>
+                                    </a>
+                            </section>
         </div>
 
-        <nav class="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">
-                    <i class="fa-solid fa-layer-group"></i>
-                    <span>KHARLE</span>
-                </div>
-            </div>
 
-            <ul class="nav-links">
-                <li class="active">
-                    <a href="#">
-                        <i class="fa-solid fa-chart-pie"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-dumbbell"></i>
-                        <span>Workouts</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-folder-open"></i>
-                        <span>Projects</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>Messages</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-gear"></i>
-                        <span>Settings</span>
-                    </a>
-                </li>
-            </ul>
 
-            <div class="sidebar-footer">
-                <a href="#" class="logout-btn">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
-        </nav>
 
-        <main class="main-content">
+            </main>
+
+
+        <script>
+        function flipCard(card) {
+            card.querySelector('.flip-card-inner').classList.toggle('flipped');
+        }
+        function toggleAccordion(header) {
+            const item = header.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const arrow = item.querySelector('.arrow');
             
-            <section class="hero">
-                <img src="25a0dcfa-7fa2-4930-8e1f-663143b70354.jfif" alt="Profile picture of Kharle">
-                <h1>KHARLE</h1>
-                <p><strong>Web Developer | Designer | Game Dev | ENGR</strong></p>
-                <p>Knowledgeable in HTML, CSS, GODOT, C Programming, Prototyping</p>
-                <p>Gym at URBNJUNGLEFITNESS</p>
-                
-                <div class="social-links">
-                    <a href="https://www.instagram.com/kharleee_?igsh=cGFubTBtTNmFiNGo3&utm_source=qr" target="_blank" rel="noopener">
-                        Instagram: @Kharleee_
-                    </a>
-                </div>
-            </section>
-
-            <section class="cards-section">
-                <h2>GYM</h2>
-
-                <div class="card-container">
-
-                    <div class="flip-card" onclick="flipCard(this)">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front card1">
-                                <h3>PUSH DAY</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <ul>
-                                    <li>Incline Dumbbell Chest Press</li>
-                                    <li>Bench Seated Press</li>
-                                    <li>Pec Deck Fly Machine</li>
-                                    <li>Shoulder Press</li>
-                                    <li>Lateral Raise</li>
-                                    <li>Wide Grip Tricep Pushdown</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flip-card" onclick="flipCard(this)">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front card2">
-                                <h3>PULL DAY</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <ul>
-                                    <li>Lat Pull Down</li>
-                                    <li>Seated Close Grip Row</li>
-                                    <li>T-Bar Chest Supported Row</li>
-                                    <li>Lat Pullover</li>
-                                    <li>Incline Dumbbell Curl</li>
-                                    <li>Cross Body Hammer Curl</li>
-                                    <li>Bent Over Lateral Raise</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flip-card" onclick="flipCard(this)">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front card3">
-                                <h3>LEG DAY</h3>
-                            </div>
-                            <div class="flip-card-back">
-                                <ul>
-                                    <li>Hip Thrust</li>
-                                    <li>Bulgarian Split Squat</li>
-                                    <li>Leg Extension</li>
-                                    <li>Hip Abduction</li>
-                                    <li>Decline Sit Ups</li>
-                                    <li>Leg Raises</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-        </main>
-    </div>
-
-    <script>
-    function flipCard(card) {
-        card.querySelector('.flip-card-inner').classList.toggle('flipped');
-    }
-    </script>
-
+            // Check if this item is already active
+            const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+            
+            // Close all open accordion items first (Optional: remove this loop if you want multiple folders open at once)
+            document.querySelectorAll('.accordion-content').forEach(el => el.style.maxHeight = '0px');
+            document.querySelectorAll('.arrow').forEach(el => el.style.transform = 'rotate(0deg)');
+            
+            // If it wasn't open, slide it down and rotate its arrow
+            if (!isOpen) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                arrow.style.transform = "rotate(180deg)";
+            }
+        }
+        </script>
 </body>
 </html>
